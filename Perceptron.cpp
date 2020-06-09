@@ -11,6 +11,21 @@ namespace THNGEO002{
 
     }
     void Perceptron::train(){
+        for (int j = 0; j < 12; j++)
+        {
+            /* code */
+        
+            const char separator    = ' ';
+            const int nameWidth     = 23;
+            const int numWidth      = 8;
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "x1";
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "x2";
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "Expected output";
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "Calculated Output";
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "Expected - calculated";
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "w1";
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "w2";
+            std::cout<<std::endl;
         for (int i = 0; i < targetOutputs.size(); i++)
         {
             int output;
@@ -29,9 +44,21 @@ namespace THNGEO002{
             double deltaW2=deltaWeight(output,inputTwo[i],targetOutputs[i]);
             w1+=deltaW1;
             w2+=deltaW2;
-            std::cout<<inputOne[i]<<"  "<<inputTwo[i]<<"  "<<targetOutputs[i]<<"  "<<output<<"  "<<targetOutputs[i]-output<<"  "<<w1<<"  "<<w2<<std::endl;
+            const char separator    = ' ';
+            const int nameWidth     =23;
+            const int numWidth      = 8;
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << inputOne[i];
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << inputTwo[i];
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << targetOutputs[i];
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << output;
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << targetOutputs[i]-output;
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << w1;
+            std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << w2;
+            //std::cout<<inputOne[i]<<"  "<<inputTwo[i]<<"  "<<targetOutputs[i]<<"  "<<output<<"  "<<targetOutputs[i]-output<<"  "<<w1<<"  "<<w2<<std::endl;
+            std::cout<<std::endl;
             
-            
+        }
+        std::cout<<"-----------------------------------------------------------------------------------------------------------------------------------------------"<<std::endl;
         }
         
     }
