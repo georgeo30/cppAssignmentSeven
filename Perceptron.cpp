@@ -7,6 +7,36 @@ namespace THNGEO002{
         inputTwo=in2;
         
     }
+    Perceptron::~Perceptron(){
+
+    }
+    void Perceptron::train(){
+        for (int i = 0; i < targetOutputs.size(); i++)
+        {
+            int output;
+            double v=calcPerceptronOutput(i);
+            //std::cout<<v<<std::endl;
+            if (v<=threshold)
+            {
+                //std::cout<<0<<std::endl;
+                output=0;
+            }
+            else{
+                //std::cout<<1<<std::endl;
+                output=1;
+            }
+            double deltaW1=deltaWeight(output,inputOne[i]);
+            double deltaW2=deltaWeight(output,inputTwo[i]);
+            
+        }
+        
+    }
+    double Perceptron::calcPerceptronOutput(int xIndex){
+       return (w1*inputOne[xIndex])+(w2*inputTwo[xIndex])-bias;
+    }
+    double Perceptron::deltaWeight(int calcOutput,int x){
+
+    }
     void Perceptron::test(){
         for (int i = 0; i < targetOutputs.size(); i++)
         {

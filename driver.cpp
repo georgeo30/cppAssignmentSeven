@@ -6,8 +6,8 @@ int main(int argc, char *argv[])
     std::vector<int> t={0,0,0,1};
     std::vector<int> in1={0,0,1,1};
     std::vector<int> in2={0,1,0,1};
-    THNGEO002::Perceptron perceptAnd(1.2,2.3,t,in1,in2);
-    perceptAnd.test();
+    THNGEO002::Perceptron perceptAnd(0.3,-0.1,t,in1,in2);
+    perceptAnd.train();
   
         
 
