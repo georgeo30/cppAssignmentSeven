@@ -5,16 +5,19 @@ namespace THNGEO002{
         targetOutputs=target;
         inputOne=in1;
         inputTwo=in2;
+        for (int i = 0; i < targetOutputs.size(); i++)
+        {
+            calcOutputs.push_back(-1);
+        }
         
     }
     Perceptron::~Perceptron(){
 
     }
     void Perceptron::train(){
-        for (int j = 0; j < 12; j++)
+        while(convergenceCheck()==false)
         {
             /* code */
-        
             const char separator    = ' ';
             const int nameWidth     = 23;
             const int numWidth      = 8;
@@ -40,10 +43,12 @@ namespace THNGEO002{
                 //std::cout<<1<<std::endl;
                 output=1;
             }
+            calcOutputs[i]=output;
             double deltaW1=deltaWeight(output,inputOne[i],targetOutputs[i]);
             double deltaW2=deltaWeight(output,inputTwo[i],targetOutputs[i]);
             w1+=deltaW1;
             w2+=deltaW2;
+            //bias+=lr*(targetOutputs[i]-output);
             const char separator    = ' ';
             const int nameWidth     =23;
             const int numWidth      = 8;
@@ -57,6 +62,8 @@ namespace THNGEO002{
             //std::cout<<inputOne[i]<<"  "<<inputTwo[i]<<"  "<<targetOutputs[i]<<"  "<<output<<"  "<<targetOutputs[i]-output<<"  "<<w1<<"  "<<w2<<std::endl;
             std::cout<<std::endl;
             
+            
+            
         }
         std::cout<<"-----------------------------------------------------------------------------------------------------------------------------------------------"<<std::endl;
         }
@@ -68,6 +75,16 @@ namespace THNGEO002{
     double Perceptron::deltaWeight(int calcOutput,int x,int t){
         return lr*(t-calcOutput)*x;
 
+    }
+    bool Perceptron::convergenceCheck(){
+        for (int i = 0; i < calcOutputs.size(); i++)
+        {
+            if(calcOutputs[i]!=targetOutputs[i]){
+                return false;
+            }
+        }
+        return true;
+        
     }
     void Perceptron::test(){
         for (int i = 0; i < targetOutputs.size(); i++)
