@@ -11,7 +11,7 @@ namespace THNGEO002
         private:
             double w1;  //input 1 weight
             double w2;  //input 2 weight
-            const double lr=0.2;    //learning rate
+            const double lr=0.1;    //learning rate
             const double bias=0.2; //bias
             const int threshold=0;   //threhold
             std::vector<int> targetOutputs; //vector to hold the target putputs
@@ -22,7 +22,7 @@ namespace THNGEO002
             ~Perceptron();
             void train(); //trainin the perceptron
             double calcPerceptronOutput(int xIndex); //method to calculate the perceptron output using the weights
-            double deltaWeight(int calcOutput,int x);   //method to calculate the delta value
+            double deltaWeight(int calcOutput,int x,int t);   //method to calculate the delta value
             void test();
 
     };

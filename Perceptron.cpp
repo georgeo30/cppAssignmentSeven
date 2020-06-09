@@ -25,8 +25,12 @@ namespace THNGEO002{
                 //std::cout<<1<<std::endl;
                 output=1;
             }
-            double deltaW1=deltaWeight(output,inputOne[i]);
-            double deltaW2=deltaWeight(output,inputTwo[i]);
+            double deltaW1=deltaWeight(output,inputOne[i],targetOutputs[i]);
+            double deltaW2=deltaWeight(output,inputTwo[i],targetOutputs[i]);
+            w1+=deltaW1;
+            w2+=deltaW2;
+            std::cout<<inputOne[i]<<"  "<<inputTwo[i]<<"  "<<targetOutputs[i]<<"  "<<output<<"  "<<targetOutputs[i]-output<<"  "<<w1<<"  "<<w2<<std::endl;
+            
             
         }
         
@@ -34,7 +38,8 @@ namespace THNGEO002{
     double Perceptron::calcPerceptronOutput(int xIndex){
        return (w1*inputOne[xIndex])+(w2*inputTwo[xIndex])-bias;
     }
-    double Perceptron::deltaWeight(int calcOutput,int x){
+    double Perceptron::deltaWeight(int calcOutput,int x,int t){
+        return lr*(t-calcOutput)*x;
 
     }
     void Perceptron::test(){
