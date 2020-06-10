@@ -31,24 +31,16 @@ namespace THNGEO002{
             std::cout<<std::endl;
         for (int i = 0; i < targetOutputs.size(); i++)
         {
-            int output;
+            int output=-1;
             double v=calcPerceptronOutput(i);
             //std::cout<<v<<std::endl;
-            if (v<=threshold)
-            {
-                //std::cout<<0<<std::endl;
-                output=0;
-            }
-            else{
-                //std::cout<<1<<std::endl;
-                output=1;
-            }
+            output=thresholdCheck(v);
             calcOutputs[i]=output;
             double deltaW1=deltaWeight(output,inputOne[i],targetOutputs[i]);
             double deltaW2=deltaWeight(output,inputTwo[i],targetOutputs[i]);
             w1+=deltaW1;
             w2+=deltaW2;
-            //bias+=lr*(targetOutputs[i]-output);
+            bias+=lr*(targetOutputs[i]-output);
             const char separator    = ' ';
             const int nameWidth     =23;
             const int numWidth      = 8;
@@ -70,7 +62,7 @@ namespace THNGEO002{
         
     }
     double Perceptron::calcPerceptronOutput(int xIndex){
-       return (w1*inputOne[xIndex])+(w2*inputTwo[xIndex])-bias;
+       return (w1*inputOne[xIndex])+(w2*inputTwo[xIndex])+bias;
     }
     double Perceptron::deltaWeight(int calcOutput,int x,int t){
         return lr*(t-calcOutput)*x;
@@ -85,6 +77,12 @@ namespace THNGEO002{
         }
         return true;
         
+    }
+    int Perceptron::thresholdCheck(double v){
+        if(v>=threshold){
+            return 1;
+        }
+        return 0;
     }
     void Perceptron::test(){
         for (int i = 0; i < targetOutputs.size(); i++)

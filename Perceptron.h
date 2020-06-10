@@ -27,6 +27,7 @@ namespace THNGEO002
             double calcPerceptronOutput(int xIndex); //method to calculate the perceptron output using the weights
             double deltaWeight(int calcOutput,int x,int t);   //method to calculate the delta value
             bool convergenceCheck();
+            int thresholdCheck(double v);
             void test();
 
     };
