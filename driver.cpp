@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     // std::vector<int> in111={0,1};
     // THNGEO002::PerceptronNot perceptNo(0.3,t11,in111);
     // perceptNo.train();
-    std::cout<<"NOR GATE Training"<<std::endl;
+    std::cout<<"NAND GATE Training"<<std::endl;
     std::vector<int> t111={1,1,1,0};
     std::vector<int> in1111={0,0,1,1};
     std::vector<int> in2111={0,1,0,1};
