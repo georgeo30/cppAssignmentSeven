@@ -1,0 +1,44 @@
+PART 1
+
+Question 1:
+    You need 3 perceptrons. AND, OR & NAND.
+    A   B   NAND    OR  AND XOR
+    0   0   1       0   0   0       
+    0   1   1       1   1   1   
+    1   0   1       1   1   1
+    1   1   0       1   0   0
+
+    x1----------|
+           |    |____>
+        ___|_________>NAND-----
+        |  |                  |_____>
+        |  |                   _____>AND
+        |  |_________>         |
+        |        ____>OR-------
+        |       | 
+    x2----------|
+
+    Thus XOR = AND(NAND(A,B),OR(A,B))
+    Thus we can see it is fully connected, feed forward network with one hidden layer.
+
+Question 2:
+    A   B   NAND    OR  AND
+    0   0   1       0   0      
+    0   1   1       1   1  
+    1   0   1       1   1
+    1   1   0       1   0 
+
+    These are the training examples required to solve the XOR problem.
+    As you can see we have 12 training examples. 4 per perceptron.
+
+PART 2
+
+Question 3
+Output of hidden neuron 1 : 0.763145
+Output of hidden neuron 2 : 0.802184
+
+Question 4
+Final output Neuron: 0.752632
+
+Question 5
+Mean Squared Average: 0.15416
