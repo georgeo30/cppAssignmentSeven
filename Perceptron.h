@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <iomanip>
+ 
 namespace THNGEO002
 {
 
@@ -24,7 +25,7 @@ namespace THNGEO002
             Perceptron(double w1,double w2,std::vector<int> const &target,std::vector<int> const &in1,std::vector<int> const &in2);
             ~Perceptron();
             void train(); //trainin the perceptron
-            double calcPerceptronOutput(int xIndex); //method to calculate the perceptron output using the weights
+            double calcPerceptronOutput(int inOne,int inTwo); //method to calculate the perceptron output using the weights
             double deltaWeight(int calcOutput,int x,int t);   //method to calculate the delta value
             bool convergenceCheck();
             int thresholdCheck(double v);

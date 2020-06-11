@@ -1,0 +1,20 @@
+Lets assume for an AND gate
+
+initialize w1,w2 (Random)
+initialize constant learning_rate
+initialize threshold
+initialize target outputs [0,0,0,1]
+REPEAT 
+    FOR EACH possible inputs [(0,0),(0,1),(1,0),(1,1)]
+        v=w1(x1)+w2(x2)+bias
+        IF v<=threshold
+            o=0
+        ELSE
+            o=1
+        Δw1=learning_rate*(t-o)(x1)
+        Δw2=learning_rate*(t-o)(x2)
+        w1=w1+Δw1
+        w2=w2+Δw2
+        bias+=learning_rate*(t-o)
+            
+UNTIL  convergens 
