@@ -4,22 +4,24 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+#include <cstdlib> 
+#include <ctime> 
 int main(int argc, char *argv[])
-{
+{srand( (unsigned)time( NULL ) );
     std::cout<<"PART 1"<<std::endl<<std::endl;
     std::cout<<"Training AND gate... "<<std::endl;
     std::vector<int> tAND={0,0,0,1};
     std::vector<int> in1={0,0,1,1};
     std::vector<int> in2={0,1,0,1};
-    THNGEO002::Perceptron perceptAnd(0.3,0.1,tAND,in1,in2);
+    THNGEO002::Perceptron perceptAnd((double) rand()/RAND_MAX,(double) rand()/RAND_MAX,tAND,in1,in2);
     perceptAnd.train();
     std::cout<<"Training OR gate... "<<std::endl;
     std::vector<int> tOR={0,1,1,1};
-    THNGEO002::Perceptron perceptOr(0.3,0.1,tOR,in1,in2);
+    THNGEO002::Perceptron perceptOr((double) rand()/RAND_MAX,(double) rand()/RAND_MAX,tOR,in1,in2);
     perceptOr.train();
     std::cout<<"Training NAND gate..."<<std::endl;
     std::vector<int> tNAND={1,1,1,0};
-    THNGEO002::Perceptron perceptNand(0.3,0.1,tNAND,in1,in2);
+    THNGEO002::Perceptron perceptNand((double) rand()/RAND_MAX,(double) rand()/RAND_MAX,tNAND,in1,in2);
     perceptNand.train();
   std::cout<<std::endl;
   std::cout<<"XOR = AND(NAND,OR)"<<std::endl<<std::endl;

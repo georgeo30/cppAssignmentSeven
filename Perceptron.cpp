@@ -18,9 +18,9 @@ namespace THNGEO002{
         while(convergenceCheck()==false)
         {
             // /* code */
-            // const char separator    = ' ';
-            // const int nameWidth     = 23;
-            // const int numWidth      = 8;
+            const char separator    = ' ';
+            const int nameWidth     = 23;
+            const int numWidth      = 8;
             // std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "x1";
             // std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "x2";
             // std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << "Expected output";
@@ -41,9 +41,9 @@ namespace THNGEO002{
             w1+=deltaW1;
             w2+=deltaW2;
             bias+=lr*(targetOutputs[i]-output);
-            // const char separator    = ' ';
-            // const int nameWidth     =23;
-            // const int numWidth      = 8;
+            const char separator    = ' ';
+            const int nameWidth     =23;
+            const int numWidth      = 8;
             // std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << inputOne[i];
             // std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << inputTwo[i];
             // std::cout << std::left << std::setw(nameWidth) << std::setfill(separator) << targetOutputs[i];
